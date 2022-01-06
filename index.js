@@ -2,29 +2,29 @@
 
 // Immutably add an item to the end of an array
 export function addToEnd(array, item) {
-    return [...array, item];
+  return [...array, item];
 }
 
 // Immutably add an item to the beginning of an array
 export function addToBeginning(array, item) {
-    return [item, ...array];
+  return [item, ...array];
 }
 
 // Immutably insert an item at a specific position/index within an array
 export function insertItem(array, item, index) {
-    // [1,2,3,4,5] 3rd
-    // 1 2 3 6  5
-    return [...array.slice(0, index), item, ...array.slice(index)]
+  // [1,2,3,4,5] 3rd
+  // 1 2 3 6  5
+  return [...array.slice(0, index), item, ...array.slice(index)];
 }
 
 // Immutably replace an item at a specific position/index within an array
 export function replaceItem(array, item, index) {
-    return [...array.slice(0, index), item, ...array.slice(index+1)] 
+  return [...array.slice(0, index), item, ...array.slice(index + 1)];
 }
 
 // Immutably remove an item at a specific position/index within an array
 export function removeItem(array, index) {
-        return [...array.slice(0, index), ...array.slice(index+1)] 
+  return [...array.slice(0, index), ...array.slice(index + 1)];
 }
 
 //Objects:
@@ -45,7 +45,7 @@ export function updateName(object, newName) {
 // should give back:
 //     { name: "Abe", needsACupOfTea: true }
 export function toggleTeaStatus(object) {
-    return {...object, needsACupOfTea:!object.needsACupOfTea};
+  return { ...object, needsACupOfTea: !object.needsACupOfTea };
 }
 
 // Combo Time!!
@@ -57,7 +57,5 @@ export function toggleTeaStatus(object) {
 // should give back:
 //    [{ task: "Cooking", completed: true }, { task: "Walking", completed: true }]
 export function toggleListItemCompleted(array, index) {
-    return [...array, ...array[index].completed:!array[index].completed
-        
-    ]
+    return [...array.slice(0,index), { task: array[index].task, completed: !array[index].completed }, ...array.slice(index+1)]
 }
